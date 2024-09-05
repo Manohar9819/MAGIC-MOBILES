@@ -1,0 +1,281 @@
+<%@ page import="java.sql.*"%>
+<%@ page import="java.util.*"%>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://demo.voidcoders.com/htmldemo/fitgear/main-files/assets/css/animate.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+        <style>    
+        .li1
+        {
+            list-style-type:none;
+            display: box;
+            display:flex;
+            text-align: center;
+            width:100%;
+            margin-right: -10px;
+            margin-left: 45px;
+            margin-top: -8px;
+            background-color: rgb(215, 211, 211);
+        }   
+        .set
+        {
+            font-size: medium;
+            width:107%;
+            margin:0px;
+            padding: 0px;
+            display:block;
+            overflow: hidden;
+            font-size: medium;
+            font-weight: bolder;
+            float: left;
+            padding-top: 15px; 
+            padding-bottom: 15px;   
+        }
+        .li1 :hover
+        {
+            background-color: brown;
+        }
+        .end{
+            color: white;
+            text-align: center;
+            padding-top: 30px;
+            
+        }
+        .bot {
+            position: relative;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #f1f1f1;
+            text-align: center;
+            padding: 10px;
+          }
+          .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-right: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            text-align: center;
+            text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+            background-color: #2ecc71;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+          }
+          
+          /* Style for login button */
+          .login {
+            background-color: #3498db;
+          }
+          
+          /* Style for sign-up button */
+          .signup {
+            background-color: #e67e22;
+          }
+          
+          /* Hover styles for the buttons */
+          .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+          }
+          
+          /* Active styles for the buttons */
+          .button:active {
+            transform: translateY(-1px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+          }
+          
+          /* Styles for the anchor tags within the buttons */
+          .button a {
+            color: #fff;
+            text-decoration: none;
+          }
+          
+          /* Style for the container div */
+          .container {
+            position: relative;
+            margin-top: 20px;
+          }
+          
+          /* Style for the float-right div */
+          .float-right {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+          }
+        
+        
+    li,ul{list-style:none;padding:0;margin:0}.sec-title{position:relative;padding-bottom:40px}.sec-title .title{position:relative;color:#00b8ca;font-size:18px;font-weight:700;padding-right:50px;margin-bottom:15px;display:inline-block;text-transform:capitalize}.sec-title .title:before{position:absolute;content:'';right:0;bottom:7px;width:40px;height:1px;background-color:#bbb}.sec-title h2{position:relative;color:#252525;font-size:36px;font-weight:700;line-height:1.5em;display:block}.sec-title.light h2{color:#fff}.contact-page-section{position:relative;padding-top:110px; padding-bottom: 110px;}.contact-page-section .inner-container{position:relative;z-index:1;background-color:#00b8ca;box-shadow:0 0 15px 5px rgba(0,0,0,.1)}.contact-page-section .form-column{position:relative;padding:0 0 0 15px}.contact-page-section .form-column .inner-column{position:relative;padding:60px 45px 30px;background-color:#fff}.contact-page-section .info-column{position:relative}.contact-page-section .info-column .inner-column{position:relative;padding:60px 35px}.contact-page-section .info-column h2{position:relative;color:#fff;font-size:30px;font-weight:700;line-height:1.4em;margin-bottom:45px}.contact-page-section .info-column .list-info{position:relative;margin-bottom:60px}.contact-page-section .info-column .list-info li{position:relative;margin-bottom:25px;font-size:18px;color:#fff;line-height:1.8em;padding-left:45px}.contact-page-section .info-column .list-info li:last-child{margin-bottom:0}.contact-page-section .info-column .list-info li i{position:absolute;left:0;top:8px;color:#fff;font-size:30px}.contact-form{position:relative}.contact-form .form-group{position:relative;margin-bottom:20px}.contact-form input[type=text],.contact-form input[type=email],.contact-form textarea{position:relative;display:block;width:100%;height:60px;color:#222;font-size:14px;line-height:38px;padding:10px 30px;border:1px solid #ddd;background-color:#fff;transition:all .3s ease;-ms-transition:all .3s ease;-webkit-transition:all .3s ease}.contact-form input[type=text]:focus,.contact-form input[type=email]:focus,.contact-form textarea:focus{border-color:#00b8ca}.contact-form textarea{height:250px;resize:none}.contact-form .theme-btn{font-size:16px;font-weight:700;margin-top:10px;text-transform:capitalize;padding:16px 39px;border:2px solid #00b8ca;font-family:Arimo,sans-serif;background:#00b8ca;display:inline-block;position:relative;line-height:24px;cursor:pointer;color:#fff}.contact-form .theme-btn:hover{color:#00b8ca;border-color:#00b8ca;background:0 0}.contact-form input.error,.contact-form select.error,.contact-form textarea.error{border-color:red!important}.contact-form label.error{display:block;line-height:24px;padding:5px 0 0;margin:0;text-transform:uppercase;font-size:12px;color:red;font-weight:500}.social-icon-four{position:relative}.social-icon-four li{position:relative;margin-right:18px;display:inline-block}.social-icon-four li.follow{color:#fff;font-weight:600;font-size:24px;display:block;margin-bottom:20px}.social-icon-four li a{position:relative;font-size:20px;color:#fff;-webkit-transition:all .3s ease;-ms-transition:all .3s ease;-o-transition:all .3s ease;-moz-transition:all .3s ease;transition:all .3s ease}.social-icon-four li a:hover{color:#222}
+        </style>
+</head>
+<body >
+    <nav class="navbar navbar-dark bg-dark fixed-top navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="inde2.jsp" style="font-weight: bold;">Magic Mobiles</a>&ensp;&ensp;&ensp;&ensp;
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav container-fluid">
+                <a class="nav-link nava active" href="topdealds2.jsp">TOP dells<span class="sr-only">(current)</span></a>
+              <!-- <a class="nav-link nava active" href="#">Recent arrivals</a> -->
+                <a class="nav-link nava active" href="upcomingmobiles2.jsp">Upcoming Mobiles</a>
+                <!-- <a class="nav-link nava active" href="#">,;,;,;,;</a>
+                <a class="nav-link nava active" href="#">,;,;,;,;</a> -->
+                <!-- <a class="nav-link nava active" href="#">,;,;store rooms,;</a> -->
+                <!-- <a class="nav-link nava active" href="#">,;,;,;,;</a> -->
+                <a class="nav-link nava active" href="#"> All Mobiles </a>
+                <a class="nav-link nava active" href="smartWaches2.jsp">Smart watches</a>
+                <a class="nav-link nava active" href="Contactus2.jsp">CONTACT US</a>
+                <a class="nav-link nava active" href="accesseries2.jsp">Accesseries</a>
+                <a class="nav-link nava active " onclick="login()" href="#">
+                <% 
+                String s1=(String)session.getAttribute("user");
+              
+                out.println(s1); %></a>  
+                <a  onclick="reg()" class="nav-link nava active" href="logut.jsp"> 
+                    
+                    <% out.println("Logut"); %></a> 
+                <!-- <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
+            </div>
+        </div>
+    </nav>
+                
+<br><br><br><br>
+    <section class="contact-page-section">
+      <div class="container">
+          <div class="sec-title">
+              <div class="title">Contact Us</div>
+                <h2>Notify your problem on your purchased product.</h2>
+            </div>
+            <div class="inner-container">
+              <div class="row clearfix">
+                
+                  <!--Form Column-->
+                    <div class="form-column col-md-8 col-sm-12 col-xs-12">
+                      <div class="inner-column">
+                          
+                            <!--Contact Form-->
+                            <div class="contact-form">
+                                <form method="post" action="Contactus2.jsp" method="POST" id="contact-form">
+                                    <div class="row clearfix">
+                                        <div class="form-group col-md-6 col-sm-6 co-xs-12">
+                                            <input type="text" name="name" value="" placeholder="Name" required>
+                                        </div>
+                                        
+                                        <div class="form-group col-md-6 col-sm-6 co-xs-12">
+                                            <input type="email" value="<%=s1%>" placeholder="Email" readonly>
+                                        </div>
+                                        <div class="form-group col-md-6 col-sm-6 co-xs-12">
+                                            <input type="text" name="subject" value="" placeholder="Subject" required>
+                                        </div>
+                                        
+                                        <div class="form-group col-md-6 col-sm-6 co-xs-12">
+                                            <input type="text" name="phone" value="" placeholder="phone number" required>
+                                        </div>
+                                        <div class="form-group col-md-12 col-sm-6 co-xs-12">
+                                            <input type="text" name="product" value="" placeholder="product name" required>
+                                        </div>
+                                        
+                                        <div class="form-group col-md-12 col-sm-12 co-xs-12">
+                                                <label for="message">message</label>
+                                                <textarea class="form-control" id="message" name="message" rows="3" placeholder="Enter your feedback" required></textarea>
+                                              
+                                        </div>
+                                        <div class="form-group col-md-12 col-sm-12 co-xs-12">
+                                            <button type="submit" class="theme-btn ">Send Now</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <!--End Contact Form-->
+                            
+                        </div>
+                    </div>
+                    
+                    <!--Info Column-->
+                    <div class="info-column col-md-4 col-sm-12 col-xs-12">
+                      <div class="inner-column">
+                          <h2>Contact Info</h2>
+                            <ul class="list-info">
+                              <li><i class="fas fa-globe"></i>Chilakalapudi,ghantasal mandal,krishna district, Andhra Pradesh</li>
+                                <li><i class="far fa-envelope"></i>konathamsivasai@gmail.com</li>
+                                <li><i class="fas fa-phone"></i>9392893662 <br>9640764769</li>
+                            </ul>
+                            <ul class="social-icon-four">
+                                <li class="follow">Follow on: </li>
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                                <li><a href="#"><i class="fab fa-dribbble"></i></a></li>
+                                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
+    <div class='bot' style="width:100%;height:100px;background-color:black;">
+        <p class="end"><a href="inde2.jsp" style="text-decoration:none; color:white;">Magic mobiles</a>&ensp;|  Website Terms of Use | Accessibility Information<br>
+
+            &copy 2023. Siva Sai . All rights reserved.</p>
+    </div>
+    <%
+  if (request.getMethod().equals("POST")) {
+    String name      = request.getParameter("name");
+      String subject = request.getParameter("subject");
+      String phone   = request.getParameter("phone");
+      String product = request.getParameter("product");
+      String message = request.getParameter("message");
+  
+    try
+        {
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            Connection con1 = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","2003");
+            String str = "insert into contact_us  values(?,?,?,?,?,?)";
+            PreparedStatement st = con1.prepareStatement(str);
+            String user=(String)session.getAttribute("user");           
+            st.setString(1,s1);
+            st.setString(2,name);
+            st.setString(3,subject);
+            st.setString(4,product);
+            st.setString(5,message);
+            st.setString(6,phone);
+            st.executeQuery();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+    } 
+%>
+<!-- partial -->
+  <!-- //<script src='https://code.jquery.com/jquery-2.1.0.js'></script> -->
+<!-- <script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js'> -->
+    
+</script>
+</body>
+</html>

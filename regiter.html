@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Login</title>
+	<link rel="stylesheet" type="text/css" href="lohd.css">
+	<style>
+		.hoverr:hover{
+			text-decoration: underline;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="backbody">
+		<center><h1> Believe and join</h1></center>
+		<div class="form-body">
+			<div class="button-bd">
+				<div id="btn"></div>
+				<button type="button" class="toggle" onclick="login()">login</button>
+				<button type="button" class="toggle" onclick="reg()">registers</button>
+			</div>
+			<div class="icons">
+				<a href="https://www.google.com"><img src="https://storage.googleapis.com/support-kms-prod/ZAl1gIwyUsvfwxoW9ns47iJFioHXODBbIkrK" title="googlee"></a>
+				<a href="https://www.instagram.com" ><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/2048px-Instagram_icon.png"></a>
+				<a href="https://www.facebook.com" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/1024px-Facebook_Logo_%282019%29.png"></a>
+			</div>
+			<form id="login" class="formcss" action="adminlogin.jsp" method="POST">
+				<input class="inputcss" type="text" name="email" placeholder="email" required> 
+				<input class="inputcss" type="password" name="pass" placeholder="password" required>
+				<input class="checkbox" type="checkbox" name="check" >
+				<span> Remember Me</span>
+				<a href='home.html' ><button class="sub" type="submit" name="check"> Submit</button></a>
+			</form>
+			<form id="reges" method="POST" class="formcss" action="registersAdmin.jsp">
+				<input class="inputcss" type="text" name="uname" placeholder="username" required>
+				<input class="inputcss" type="text" name="Email" placeholder="Email" required>
+				<input class="inputcss" type="password" name="pass" placeholder="password" required> 
+				<input class="inputcss" type="password" name="pass2" placeholder="Confirm password" required>
+				<input class="checkbox" type="checkbox" name="check" >
+				<span> I accept Terms & conditons..</span>
+				<a href="http://127.0.0.1:5500/home.html" ><button class="sub" type="submit" name="check">Submit</button></a>
+			</form>
+			
+            
+	</div>
+</div>
+</body>
+<script type="text/javascript">
+	var x=document.getElementById('login');
+	var y=document.getElementById('reges');
+	var z=document.getElementById('btn');
+	function reg() {
+		// body...
+		x.style.left="-400px";
+		y.style.left="50px";
+		z.style.left="110px";
+	}
+	function login() {
+		// body...
+		x.style.left="50px";
+		y.style.left="450px";
+		z.style.left="0px";
+	}
+</script>
+</html>
